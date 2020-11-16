@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ADETQ2.Models.NewStudentInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Student_ID }, new { @class = "btn btn-primary" })|
+                @Html.ActionLink("Details", "Details", new { id = item.Student_ID }, new { @class = "btn btn-success" })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.Student_ID }, new { @class = "btn btn-danger" })|
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
